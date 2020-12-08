@@ -1,0 +1,25 @@
+name: Continuous Integration
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build typescript
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14'
+
+    - run: npm install
+
+    - name: Run Linter
+      run: yarn lint
+
+    - name: Compile code
+      run: npm build
