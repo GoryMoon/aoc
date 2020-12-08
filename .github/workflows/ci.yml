@@ -19,7 +19,7 @@ jobs:
     - run: npm install
 
     - name: Run Linter
-      run: yarn lint
+      run: npm run lint
 
     - name: Compile code
       run: npm build
