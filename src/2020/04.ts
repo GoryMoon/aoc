@@ -18,7 +18,7 @@ const parseRow = (row: string): Passport => {
     }, {});
 };
 
-const parseInput = (input: string): Passport[] => {
+export const parseInput = (input: string): Passport[] => {
   const lines = splitLines(input);
   const result: Passport[] = [];
   let row: string = '';

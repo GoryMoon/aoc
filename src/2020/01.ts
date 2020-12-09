@@ -1,7 +1,7 @@
 import { splitLines } from '../helpers';
 import { PuzzleDay } from '../puzzleDay';
 
-const parseInput = (input: string) => {
+export const parseInput = (input: string): number[] => {
   const lines = splitLines(input);
   return lines.map((line) => parseInt(line, 10));
 };

@@ -8,7 +8,7 @@ interface PasswordData {
   password: string;
 }
 
-const parseInput = (input: string): PasswordData[] => {
+export const parseInput = (input: string): PasswordData[] => {
   return splitLines(input).map((row) => {
     const [rule, rawLetter, password] = row.split(/ /);
     const [first, second] = rule.split(/-/);

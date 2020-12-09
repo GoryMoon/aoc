@@ -22,14 +22,14 @@ const bspSplit = (input: string[], bottomVal: string, topVal: number) => {
   return split(0, topVal);
 };
 
-const getSeat = (input: string): Seat => {
+export const parseInput = (input: string): Seat => {
   return {
     row: bspSplit(input.slice(0, -3).split(''), 'B', 127),
     col: bspSplit(input.slice(-3).split(''), 'R', 8),
   };
 };
 
-const findEmpty = (seats: number[]): number => {
+export const findEmpty = (seats: number[]): number => {
   let prev = seats.shift();
   let next = seats.shift();
   while ((prev ?? 0) + 1 === next) {
@@ -41,13 +41,13 @@ const findEmpty = (seats: number[]): number => {
 
 export class Puzzle202005 extends PuzzleDay {
   part1(): string {
-    const seats = splitLines(this.input).map(getSeat);
+    const seats = splitLines(this.input).map(parseInput);
     const seatIds = seats.map((s) => s.row * 8 + s.col);
     return Math.max(...seatIds).toString();
   }
 
   part2(): string {
-    const seats = splitLines(this.input).map(getSeat);
+    const seats = splitLines(this.input).map(parseInput);
     const seatIds = seats.map((s) => s.row * 8 + s.col);
     seatIds.sort((a, b) => a - b);
     return findEmpty(seatIds).toString();

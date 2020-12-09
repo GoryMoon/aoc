@@ -7,7 +7,7 @@ const countTrees = (rows: string[], right: number, down: number): number => {
   let x: number = right;
 
   for (let y = down; y < rows.length; y += down) {
-    if (rows[y % width][x] === '#') {
+    if (rows[y][x % width] === '#') {
       count++;
     }
     x += right;

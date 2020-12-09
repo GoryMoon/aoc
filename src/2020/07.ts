@@ -10,24 +10,27 @@ type BagRules = {
   }[];
 };
 
-const parseInput = (input: string): BagRules => {
+export const parseInput = (input: string): BagRules => {
   const lines = splitLines(input);
   return lines.reduce((allRules, line) => {
     const [, outerBag, rules] = line.match(/^(.*) bags contain (.*)\./) ?? [];
-    const subRules = rules
-      .split(',')
-      .map((subRule) => {
-        const [, count, color] = subRule.match(/(\d+) (.*) bags?/) ?? [];
-        return {
-          color,
-          quantity: +count,
-        };
-      })
-      .filter((r) => r.color && r.quantity);
-    return {
-      ...allRules,
-      [outerBag]: subRules,
-    };
+    if (rules) {
+      const subRules = rules
+        .split(',')
+        .map((subRule) => {
+          const [, count, color] = subRule.match(/(\d+) (.*) bags?/) ?? [];
+          return {
+            color,
+            quantity: +count,
+          };
+        })
+        .filter((r) => r.color && r.quantity);
+      return {
+        ...allRules,
+        [outerBag]: subRules,
+      }; 
+    }
+    return allRules;
   }, {});
 };
 
@@ -67,13 +70,9 @@ const findChildren = (rules: BagRules, root: string): string[] => {
 const countInnerBags = (rules: BagRules, root: string): number => {
   const cache = new Map<string, number>();
   const innerCount = (color: string): number => {
-    if (cache.has(color)) {
-      return cache.get(color) ?? 0;
-    }
-
-    if (!rules[color]) {
-      cache.set(color, 1);
-      return 1;
+    const cacheVal = cache.get(color);
+    if (cacheVal) {
+      return cacheVal;
     }
 
     const sum = rules[color].reduce<number>((total, curr) => total + innerCount(curr.color) * curr.quantity, 1);

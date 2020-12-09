@@ -6,9 +6,9 @@ interface Op {
   arg: number;
 }
 
-const parseInput = (input: string): Op[] => {
+export const parseInput = (input: string): Op[] => {
   return splitLines(input).map((line) => {
-    const [, type, arg] = line.match(/^(\w{3}) ([-+]\d+)/) ?? [];
+    const [type, arg] = line.split(' ');
     return {
       type,
       arg: parseInt(arg, 10),

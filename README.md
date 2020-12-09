@@ -1,4 +1,7 @@
 # aoc
+[![codecov](https://codecov.io/gh/GoryMoon/aoc/branch/main/graph/badge.svg?token=OM2ZWMF7SL)](https://codecov.io/gh/GoryMoon/aoc)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/GoryMoon/aoc/CI?logo=github-actions&logoColor=ffffff)
+
 
 Advent of Code Solutions in Typescript
 

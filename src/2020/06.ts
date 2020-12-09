@@ -2,7 +2,7 @@ import { splitLines, sum } from '../helpers';
 import { PuzzleDay } from '../puzzleDay';
 
 // Old parser, looked at some others afterwards and tested with regex below to learn it some more
-const parseInputOld = (input: string): string[][] => {
+export const parseInputOld = (input: string): string[][] => {
   const lines = splitLines(input);
   const result: string[][] = [];
   let row: string[] = [];
@@ -18,7 +18,7 @@ const parseInputOld = (input: string): string[][] => {
   return result;
 };
 
-const parseInput = (input: string): string[][] => {
+export const parseInput = (input: string): string[][] => {
   return input.split(/\r?\n\r?\n/).map((v) => v.split(/\r?\n/).map((line) => line.trim()));
 };
 
@@ -26,9 +26,7 @@ const countUnique = (input: string[]): number => {
   const letters = new Set();
   const joined = input.join('');
   for (const letter of joined) {
-    if (letter !== '\n') {
-      letters.add(letter);
-    }
+    letters.add(letter);
   }
   return letters.size;
 };
