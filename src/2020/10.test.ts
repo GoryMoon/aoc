@@ -91,7 +91,7 @@ describe('202010', () => {
     expect(result).toBe('8');
   });
 
-  /*test('Part 2 example 2', () => {
+  test('Part 2 example 2', () => {
     day.loadData(`28
     33
     18
@@ -125,5 +125,5 @@ describe('202010', () => {
     3`);
     const result = day.part2();
     expect(result).toBe('19208');
-  });*/
+  });
 });
