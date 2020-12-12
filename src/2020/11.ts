@@ -1,4 +1,4 @@
-import { splitLines, sum } from '../helpers';
+import { splitLines } from '../helpers';
 import { PuzzleDay } from '../puzzleDay';
 
 interface Seating {
