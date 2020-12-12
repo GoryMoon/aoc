@@ -13,6 +13,7 @@ import { Puzzle202008 } from './2020/08';
 import { Puzzle202009 } from './2020/09';
 import { Puzzle202010 } from './2020/10';
 import { Puzzle202011 } from './2020/11';
+import { Puzzle202012 } from './2020/12';
 
 const argv = yargs.options({
   day: { type: 'string', alias: 'd', default: '' },
@@ -75,6 +76,8 @@ const dayToClass = (day: string, inputFile: string): PuzzleDay => {
       return new Puzzle202010(inputFile);
     case '202011':
       return new Puzzle202011(inputFile);
+    case '202012':
+      return new Puzzle202012(inputFile);
     default:
       throw new Error('No such Day');
   }
