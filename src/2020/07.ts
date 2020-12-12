@@ -28,7 +28,7 @@ export const parseInput = (input: string): BagRules => {
       return {
         ...allRules,
         [outerBag]: subRules,
-      }; 
+      };
     }
     return allRules;
   }, {});

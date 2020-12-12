@@ -2,13 +2,13 @@ import { splitLines } from '../helpers';
 import { PuzzleDay } from '../puzzleDay';
 
 export const parseInput = (input: string): number[] => {
-  return splitLines(input).map(v => parseInt(v, 10));
+  return splitLines(input).map((v) => parseInt(v, 10));
 };
 
 const firstInvalid = (input: number[], preambleLength: number): number => {
   let result = 0;
   for (let i = preambleLength; i < input.length; i++) {
-    const prev = input.slice(i - preambleLength, i); 
+    const prev = input.slice(i - preambleLength, i);
     let valid = false;
     for (let j = 0; j < prev.length; j++) {
       for (let k = j + 1; k < prev.length; k++) {
@@ -23,7 +23,7 @@ const firstInvalid = (input: number[], preambleLength: number): number => {
     }
   }
   return result;
-}
+};
 
 const findContiguousNumbers = (input: number[], invalidNumber: number): number => {
   let result = 0;
@@ -43,7 +43,7 @@ const findContiguousNumbers = (input: number[], invalidNumber: number): number =
     }
   }
   return result;
-}
+};
 
 export class Puzzle202009 extends PuzzleDay {
   preambleLength = 25;
@@ -54,7 +54,7 @@ export class Puzzle202009 extends PuzzleDay {
 
   part2(): string {
     const numbers = parseInput(this.input);
-    const invalid = firstInvalid(numbers, this.preambleLength)
+    const invalid = firstInvalid(numbers, this.preambleLength);
     return findContiguousNumbers(numbers, invalid).toString();
   }
 }

@@ -16,21 +16,21 @@ describe('202002', () => {
       {
         firstRule: 1,
         secondRule: 3,
-        letter: "a",
-        password: "abcde"
+        letter: 'a',
+        password: 'abcde',
       },
       {
         firstRule: 1,
         secondRule: 3,
-        letter: "b",
-        password: "cdefg"
+        letter: 'b',
+        password: 'cdefg',
       },
       {
         firstRule: 2,
         secondRule: 9,
-        letter: "c",
-        password: "ccccccccc"
-      }
+        letter: 'c',
+        password: 'ccccccccc',
+      },
     ]);
   });
 

@@ -2,7 +2,7 @@ import { splitLines, sum } from '../helpers';
 import { PuzzleDay } from '../puzzleDay';
 
 export const parseInput = (input: string): number[] => {
-  return splitLines(input).map(v => parseInt(v, 10));
+  return splitLines(input).map((v) => parseInt(v, 10));
 };
 
 const countJoltDifferences = (input: number[]): number[] => {
@@ -15,7 +15,7 @@ const countJoltDifferences = (input: number[]): number[] => {
     currentJolt = num;
   }
   return result;
-}
+};
 
 const countJoltPermutations = (input: number[]): number => {
   const cache = new Map<number, number>();
@@ -25,19 +25,21 @@ const countJoltPermutations = (input: number[]): number => {
       return cacheVal;
     }
 
-    const count = Math.max([start + 1, start + 2, start + 3]
-      .filter(v => input.indexOf(v) !== -1)
-      .map(v => innerCount(v))
-      .reduce(sum, 0), 1)
-    
+    const count = Math.max(
+      [start + 1, start + 2, start + 3]
+        .filter((v) => input.indexOf(v) !== -1)
+        .map((v) => innerCount(v))
+        .reduce(sum, 0),
+      1,
+    );
+
     cache.set(start, count);
     return count;
   };
   return innerCount(0);
-}
+};
 
 export class Puzzle202010 extends PuzzleDay {
-
   part1(): string {
     const input = parseInput(this.input);
     input.sort((a, b) => a - b);

@@ -1,4 +1,4 @@
-import { Puzzle202004, parseInput} from './04';
+import { Puzzle202004, parseInput } from './04';
 
 let day: Puzzle202004;
 
@@ -32,8 +32,8 @@ describe('202004', () => {
         eyr: '2023',
         pid: '028048884',
         hcl: '#cfa07d',
-        byr: '1929'
-      }
+        byr: '1929',
+      },
     ]);
   });
 

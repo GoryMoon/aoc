@@ -1,4 +1,4 @@
-import { Puzzle202005, parseInput, findEmpty} from './05';
+import { Puzzle202005, parseInput, findEmpty } from './05';
 
 let day: Puzzle202005;
 
@@ -10,34 +10,28 @@ describe('202004', () => {
   test('parseInput example 1', () => {
     const input = `BFFFBBFRRR`;
     const result = parseInput(input);
-    expect(result).toMatchObject(
-      {
-        row: 70,
-        col: 7
-      }
-    );
+    expect(result).toMatchObject({
+      row: 70,
+      col: 7,
+    });
   });
 
   test('parseInput example 2', () => {
     const input = `FFFBBBFRRR`;
     const result = parseInput(input);
-    expect(result).toMatchObject(
-      {
-        row: 14,
-        col: 7
-      }
-    );
+    expect(result).toMatchObject({
+      row: 14,
+      col: 7,
+    });
   });
 
   test('parseInput example 3', () => {
     const input = `BBFFBBFRLL`;
     const result = parseInput(input);
-    expect(result).toMatchObject(
-      {
-        row: 102,
-        col: 4
-      }
-    );
+    expect(result).toMatchObject({
+      row: 102,
+      col: 4,
+    });
   });
 
   test('Part 1 example 1', () => {

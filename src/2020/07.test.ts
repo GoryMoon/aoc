@@ -13,21 +13,21 @@ describe('202007', () => {
     const result = parseInput(input);
     expect(result).toEqual({
       'light red': [
-        { 
+        {
           color: 'bright white',
-          quantity: 1
+          quantity: 1,
         },
         {
           color: 'muted yellow',
-          quantity: 2
-        }
+          quantity: 2,
+        },
       ],
       'dark orange': [
         {
           color: 'bright white',
           quantity: 3,
-        }
-      ]
+        },
+      ],
     });
   });
 
