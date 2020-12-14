@@ -15,7 +15,7 @@ export const parseInput = (input: string): Action[] => {
   });
 };
 
-const headingFromRotation = (rotation: number): string => {  
+const headingFromRotation = (rotation: number): string => {
   switch (rotation % 360) {
     case 90:
       return 'E';
@@ -113,7 +113,6 @@ const followStep2Instructions = (instructions: Action[]): { east: number; north:
   }
   return { east, north };
 };
-
 
 export class Puzzle202012 extends PuzzleDay {
   part1(): string {

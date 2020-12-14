@@ -19,7 +19,7 @@ describe('202013', () => {
         { valid: false, interval: -1 },
         { valid: false, interval: -1 },
         { valid: true, interval: 59 },
-      ]
+      ],
     });
   });
 
@@ -50,7 +50,7 @@ describe('202013', () => {
     const result = day.part2();
     expect(result).toBe('754018');
   });
-  
+
   test('Part 2 example 4', () => {
     day.loadData(`0
     67,x,7,59,61`);
