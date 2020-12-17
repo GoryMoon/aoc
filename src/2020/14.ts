@@ -22,11 +22,11 @@ export const parseInput = (input: string): Program[] => {
       const [, maskString] = row.match(/^mask = ([X01]+)/) ?? [];
       const parts = maskString?.split('').reverse();
       const setMask = !parts
-        ? BigInt(0)
-        : parts.reduce((tot, curr, i) => tot | ((curr === '1' ? BigInt(1) : BigInt(0)) << BigInt(i)), BigInt(0));
+        ? 0n
+        : parts.reduce((tot, curr, i) => tot | ((curr === '1' ? 1n : 0n) << BigInt(i)), 0n);
       const clearMask = !parts
-        ? BigInt(0)
-        : parts.reduce((tot, curr, i) => tot | ((curr === '0' ? BigInt(1) : BigInt(0)) << BigInt(i)), BigInt(0));
+        ? 0n
+        : parts.reduce((tot, curr, i) => tot | ((curr === '0' ? 1n : 0n) << BigInt(i)), 0n);
       currentProgram = {
         maskString,
         setMask,
@@ -49,7 +49,7 @@ export const parseInput = (input: string): Program[] => {
 };
 
 const setMemory = (programs: Program[]): BigUint64Array => {
-  const memory = new BigUint64Array(99999).fill(BigInt(0));
+  const memory = new BigUint64Array(99999).fill(0n);
   programs.forEach((prog) => {
     prog.instructions.forEach((inst) => (memory[inst.k] = (BigInt(inst.v) & ~prog.clearMask) | prog.setMask));
   });
@@ -98,7 +98,7 @@ export class Puzzle202014 extends PuzzleDay {
   part1(): string {
     const programs = parseInput(this.input);
     const mem = setMemory(programs);
-    return mem.reduce((tot, curr) => tot + curr, BigInt(0)).toString();
+    return mem.reduce((tot, curr) => tot + curr, 0n).toString();
   }
 
   part2(): string {

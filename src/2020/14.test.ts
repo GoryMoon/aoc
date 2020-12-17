@@ -16,8 +16,8 @@ describe('202014', () => {
     expect(result).toEqual([
       {
         maskString: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X',
-        setMask: BigInt(0b1000000),
-        clearMask: BigInt(0b10),
+        setMask: 0b1000000n,
+        clearMask: 0b10n,
         instructions: [
           { k: 8, v: 11 },
           { k: 7, v: 101 },
@@ -37,14 +37,14 @@ describe('202014', () => {
     expect(result).toEqual([
       {
         maskString: undefined,
-        setMask: BigInt(0),
-        clearMask: BigInt(0),
+        setMask: 0n,
+        clearMask: 0n,
         instructions: [],
       },
       {
         maskString: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXX1XXXX0X',
-        setMask: BigInt(0b1000000),
-        clearMask: BigInt(0b10),
+        setMask: 0b1000000n,
+        clearMask: 0b10n,
         instructions: [],
       },
     ]);
@@ -63,8 +63,8 @@ describe('202014', () => {
     expect(result).toEqual([
       {
         maskString: '1X11X010X000X0X101X00100011X10100111',
-        setMask: BigInt(0b101100100000000101000100011010100111),
-        clearMask: BigInt(0b000001010111010010011011100001011000),
+        setMask: 0b101100100000000101000100011010100111n,
+        clearMask: 0b000001010111010010011011100001011000n,
         instructions: [{ k: 40278, v: 36774405 }],
       },
     ]);
